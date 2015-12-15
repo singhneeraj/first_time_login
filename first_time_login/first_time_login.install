@@ -71,8 +71,8 @@ function first_time_login_install() {
       ->execute();
   }
   variable_set('first_time_login_config_days', 120);
-  variable_set('new_user_message', "Welcome @user to @site_name your account was created on '@created_date'. Please update your account's details.");
-  variable_set('update_user_message', "Welcome @user to @site_name your account was updated on '@updated_date'. Please update your account's details.");
+  variable_set('first_time_login_new_user_message', "Welcome @user to @site_name your account was created on '@created_date'. Please update your account's details.");
+  variable_set('first_time_login_update_user_message', "Welcome @user to @site_name your account was updated on '@updated_date'. Please update your account's details.");
 }
 
 /**
@@ -80,6 +80,17 @@ function first_time_login_install() {
  */
 function first_time_login_uninstall() {
   variable_del('first_time_login_config_days');
-  variable_del('new_user_message');
-  variable_del('update_user_message');
+  variable_del('first_time_login_new_user_message');
+  variable_del('first_time_login_update_user_message');
+}
+
+/**
+ * Implements hook_update_N().
+ * Setting new configurable variables.
+ */
+function first_time_login_update_7000() {
+  $first_time_login_config_days  = variable_get('first_time_login_config_days');
+  variable_set('first_time_login_config_days', $first_time_login_config_days);
+  variable_set('first_time_login_new_user_message', "Welcome @user to @site_name your account was created on '@created_date'. Please update your account's details.");
+  variable_set('first_time_login_update_user_message', "Welcome @user to @site_name your account was updated on '@updated_date'. Please update your account's details.");
 }

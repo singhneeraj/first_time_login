@@ -25,7 +25,7 @@ function first_time_login_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Enter the welcome message for the newly registered users.'),
     '#required' => TRUE,
-    '#default_value' => variable_get('new_user_message'),
+    '#default_value' => variable_get('first_time_login_new_user_message'),
     '#description' => t('Text field - enter message.
       For example: Welcome to the @site_name. </br>
       Allowed tokens: @user, @site_name and @created_date'),
@@ -34,7 +34,7 @@ function first_time_login_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Enter the reminder message for the users </br>who have not updated their profile since the above configured number of days.'),
     '#required' => TRUE,
-    '#default_value' => variable_get('update_user_message'),
+    '#default_value' => variable_get('first_time_login_update_user_message'),
     '#description' => t('Text field - enter message.
       For example: @user, please update your account. </br>
       Allowed tokens: @user, @site_name and @updated_date'),
