@@ -21,7 +21,7 @@ function first_time_login_form($form, &$form_state) {
       User who has not updated their account since the above mentioned days,
       will be prompted to updated their account after login.'),
   );
-  $form['new_user_message'] = array(
+  $form['first_time_login_new_user_message'] = array(
     '#type' => 'textfield',
     '#title' => t('Enter the welcome message for the newly registered users.'),
     '#required' => TRUE,
@@ -30,7 +30,7 @@ function first_time_login_form($form, &$form_state) {
       For example: Welcome to the @site_name. </br>
       Allowed tokens: @user, @site_name and @created_date'),
   );
-  $form['update_user_message'] = array(
+  $form['first_time_login_update_user_message'] = array(
     '#type' => 'textfield',
     '#title' => t('Enter the reminder message for the users </br>who have not updated their profile since the above configured number of days.'),
     '#required' => TRUE,

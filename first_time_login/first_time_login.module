@@ -87,7 +87,7 @@ function first_time_login_user_login(&$edit, $account) {
       $account_created = format_date($account->created, 'custom', 'd-M-Y');
       $last_updated_date = format_date($updated_date, 'custom', 'd-M-Y');
       if ($needsupdate == FALSE) {
-		$new_user_message = variable_get('new_user_message');
+		$new_user_message = variable_get('first_time_login_new_user_message');
 		drupal_set_message(t($new_user_message, array(
           '@user' => $account->name,
           '@site_name' => variable_get('site_name'),
@@ -95,7 +95,7 @@ function first_time_login_user_login(&$edit, $account) {
         )));
       }
       elseif ($details->first_time_login == 0) {
-		$update_user_message = variable_get('update_user_message');
+		$update_user_message = variable_get('first_time_login_update_user_message');
         drupal_set_message(t($update_user_message, array(
             '@user' => $account->name,
             '@site_name' => variable_get('site_name'),

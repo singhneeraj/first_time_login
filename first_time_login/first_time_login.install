@@ -89,7 +89,9 @@ function first_time_login_uninstall() {
  * Setting new configurable variables.
  */
 function first_time_login_update_7000() {
-  $first_time_login_config_days  = variable_get('first_time_login_config_days');
+  variable_del('new_user_message');
+  variable_del('update_user_message');
+  $first_time_login_config_days = variable_get('first_time_login_config_days');
   variable_set('first_time_login_config_days', $first_time_login_config_days);
   variable_set('first_time_login_new_user_message', "Welcome @user to @site_name your account was created on '@created_date'. Please update your account's details.");
   variable_set('first_time_login_update_user_message', "Welcome @user to @site_name your account was updated on '@updated_date'. Please update your account's details.");
